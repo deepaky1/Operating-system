@@ -1,0 +1,127 @@
+STUDENT NAME :-DEEPAK A YADAV
+ROLLNO:-200240520031
+
+
+
+
+Q1. Explore the following commands with various options, refer man pages for 
+    further help 
+a) date :-Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+-->>done
+--------------------------------------------------------------------------------------------------------
+Q2. A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively 
+
+-->>Ans
+-->>mkdir -p {a,b,c}
+-->>~a/touch a.txt
+-->>~b/touch b.txt
+-->>~c/touch c.txt     
+
+and then copy c directory into the a.
+-->>cp c -r a
+
+B)Move Directory b to c.
+-->>mv b -r a
+
+C)Create alias of ls -lh command to your name.
+-->>
+
+D)Change Directory name a to cdac.
+-->>mv a cdac
+
+--------------------------------------------------------------------------------------
+Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+    Also Use cat to view all file content together.
+-->>$touch {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
+-->>$grep -i 's' file1.txt file2.txt file3.txt file4.txt file5.txt
+
+B)Create file.txt using cat and edit that using nano editor.
+-->>$cat > file.txt 
+-->>$nano file.txt
+
+c)Create 5 empty files using touch command
+-->>$touch {1.txt,2.txt,3.txt,4.txt,5.txt}
+
+D)Remove previously created directory a , b and c.
+-->>$cdac/rmdir -p b
+-->>$rmdir cdac
+---------------------------------------------------------------------------------------
+Q4. Create a file with some content using vi editor
+-->>a) Display the file using cat command
+-->>b) Display line numbers along with content
+-->>c) Display the file in reverse order using tac
+-->>d) Combine multiple files using cat command
+----------------------------------------------------------------------------------------
+Q5. Create Random some files and sub directories.
+a) display files row wise, column wise, 1 per row
+-->>1)$cat > row.txt
+srno
+name 
+age 
+email
+-->>$column row.txt  --->>srno name age email
+2)$cat > abc.txt
+  srno,name,gender,id
+  1,deepak,m,31
+  2,ravi,m,32
+  3,ravina,f,45
+  4,alia,f,65
+-->>$column -t -s "," abc.txt
+--> srno   name    gender  id
+     1    deepak     m     31
+     2    ravi       m     32
+     3    ravina     f     45
+     4    alia       f     65
+
+
+b) sort the files in ascending, descending order
+-->>$sort sort.txt      2)$sort -r sort.txt
+-->>$sort -n sort.txt(for number) 2)$sort -nr sort.txt
+
+c) Create some hidden files and sub directories and display them using “ls -a”
+-->>$touch {.h1,.h2}
+-->>$mkdir .hidden
+
+d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+-->>done
+
+e) Recursive display contents of your home directory.
+-->>$ls -r
+
+f) display all attributes of files and directories using ls -l
+-->>done
+
+g) display attributes of a directory using ls -ld
+-->>drwxr -xr -x 3
+==================================================================================
+Q1. Create directory of your name and then create 4 files inside it named
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+		a)user can read and write the file a.txt and b.txt
+		b)user can write the file c.txt
+		c)user can exectuable the file d.sh. Make
+			Contents of file d.sh:
+			#/bin/sh
+			ls -lh
+-->>done
+Q2. Change the permission of the previous directory to executable only.
+	Analyze the output.
+-->>$chmod 111 dirctory
+
+Q3. Change the permission of the previous directory to read only.
+	Analyze the output.
+-->>$chmod 444 dirctory
+
+Q4. Use echo to list the all files of your home directory.
+-->>done
+Q5. Use echo to list the all files of /etc/ directory
+-->>done
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+-->>done
+Q7. Use echo to append your name to a.txt
+-->>done
+==================================================================================
