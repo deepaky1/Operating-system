@@ -1,0 +1,180 @@
+1.	Write a script to create 10 directories, say a1,a2,...,a10
+-->>mkdir a{1..10}
+
+2. Write a menu based script to perform following string operations
+a) To find length of a string
+-->>echo "write something"
+    read data
+    echo $data | wc
+ 
+c) Copying string
+-->>echo "write something"
+    read data
+    cp $data1 > data2
+    echo $data2  
+
+d) Concatenation of strings
+-->>echo "write something"
+    read data1
+    echo "Again write something"
+    read data2
+    echo $data1$data2
+    
+e) Compare two strings
+-->>echo "write something"
+    read data1
+    echo "Again write something"
+    read data2
+   if[[ "$data1" == "$data2" ]];then
+    echo "equal"
+    else 
+    echo "not equal"
+
+f) Reversing a string
+-->> echo "abcdefg" | rev
+
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+
+
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+-->>echo $HOME
+    echo $PATH
+    echo $SHELL
+    echo $HISTORY
+    echo $LOGNAME
+    echo $TERM
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+-->>
+6. Write a shell script to print all files permissions and name of file
+-->>ls -al
+
+7.Write a shell script to print all files name and size greater than 5K
+-->> find -type f -size +5k -ls
+
+1. Write a script To check given year is leap or not.
+-->>
+2. Write a script to print day of the week using
+	a) elif	b) case 
+-->>echo "Enter day code"
+    read a
+    if [[ "$a" -eq 1 ]];then
+     echo "Sunday"
+    elif [[ "$a" -eq 2 ]];then
+     echo "Monday"
+    elif [[ "$a" -eq 3 ]];then
+     echo "Tuesday"
+    elif [[ "$a" -eq 4 ]];then
+     echo "Wednesday"
+    elif [[ "$a" -eq 5 ]];then
+     echo "Thursday"
+    elif [[ "$a" -eq 6 ]];then
+     echo "Friday"
+    elif [[ "$a" -eq 7 ]];then
+     echo "Saturday"
+    else
+     echo "Invalid option"
+    fi
+
+
+-->>echo "Enter day code"
+    read a
+    
+    case $a in
+    1) echo "Sunday";;
+    2) echo "Monday";;
+    3) echo "Tuesday";;
+    4) echo "Wednesday";;
+    5) echo "Thursday";;
+    6) echo "Friday";;
+    7) echo "Saturday";;
+    *) echo "Invalid";;
+   esac  
+    
+
+
+3. a) Write a script to find biggest of three no.s
+   b) To find avg of 3 no.s, read no.s from keyboard
+-->>echo "numbers"
+    read a
+    read b
+    read c
+if [ "$a" -gt "$b"] && [ "$a" -gt "$c"]
+ echo "a greater"
+elif [ "$b" -gt "$a"] && [ "$b" -gt "$c"]
+ echo "b is greater"
+else 
+ echo "c is greater"
+fi
+
+4. Write a program to check wahether given no.is even or odd
+-->>echo "enter the number"
+    read a
+   if [[ $a%2 -eq o ]];then
+   echo "number is even"
+   else 
+   echo "number is odd"
+   fi
+
+
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+-->>echo "Enter the Year"
+    read y
+    echo "Enter the Month"
+    read m
+    cal "$m" $((y-1))
+    cal "$m" "$y"
+    cal "$m" $((y+1))
+
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+	b)expr
+	c)bc	
+-->>x=2
+    y=3
+    
+    add=$(( $a + $b ))
+    mul=$(( $a * $b ))
+  echo Addition: "$add"
+  echo Product: "$mul"
+
+
+$echo `scale=2; 3+4` | bc
+
+$echo `scale=2; 3*4` | bc
+
+
+7. Write a script to generate Fibonacci series.
+-->>
+8. Write a shell script to reverse the single strings. 
+
+-->>echo "write something"
+    read data 
+    echo "$data" | rev
+    
+
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+-->>
+10. Write a shell script to print the reverse of an input number.
+-->>echo "enter number"
+    read a
+   for(( i=$a; i>=0; i--))
+   do
+   echo "$i" 
+   done
+   
+
+ or 
+  
+  read -p "number" a
+  echo $a | rev
+
+
+
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
