@@ -1,0 +1,116 @@
+Student name : Deepak Yadav
+200240520031
+Assignment no :-03
+
+(Q1) Parent and child process 
+Write a C/CPP program to create a child process. Child should print its pid and its parent’s pid and should exit by printing message as “Child Exiting …”. Parent should print its pid and should exit by printing message as “Parent Exiting ..”. 
+(Hint(functions to be used) : getpid, fork, getppid) 
+
+Answer:-
+
+#include<unistd.h>
+#include<stdlib.h>
+#include<iostream>
+#include<sys/types.h>
+using namespace std;
+
+int main()
+{
+     
+       pid_t pid;
+        pid=fork();
+
+        if(pid==0)
+        {
+                        
+ cout<<"PID of child process is :"<<getpid();
+ cout<<endl;
+ cout<<"PPID of child process is: "<<getppid();
+                cout<<endl;
+        }
+        else if(pid>0)
+        {
+                //parent process        
+   
+                cout<<"PID of parent process is : "<<getpid();
+                cout<<endl;
+                cout<<"PPID of parent process----"<<getppid();
+                cout<<endl;
+        }
+        else
+        {
+                cout<<"fork failed";
+        }
+        return 0;
+}
+
+OUTPUT
+PID  of parent process----10425
+PPID of parent process----27782
+PID of child process----10426
+PPID of child process----10425
+------------------------------------
+
+
+(Q2) Scheduling functions 
+Write a program in C/CPP to check the scheduling policy used by the process and its priority. 
+    (Hint(functions to be used) : sched_getscheduler, getpid) 
+
+
+Answer:-
+
+#include<iostream>
+#include<unistd.h>
+#include<stdlib.h>
+#include<sched.h>
+
+using namespace std;
+
+int main()
+{
+        int a;
+        a=sched_getscheduler(getpid());
+        switch(a)
+        {
+                case SCHED_OTHER:cout<<"another scheduling poly"<<endl;
+                break;
+                case SCHED_RR:cout<<"round robin scheduler"<<endl;
+                break;
+                case SCHED_FIFO:cout<<"first in first out"<<endl;
+                break;
+
+        }
+return 0;
+}
+Output
+another scheduling policy
+---------------------------------
+
+
+(Q3) Scheduling functions 
+Write a program in C/CPP to get the current scheduling policy of the process. The program should change the scheduling policy to the other than current one. Program should report errors if it fails to set the new scheduling policy. 
+    (Hint(functions to be used) : sched_setscheduler, getpid) 
+
+Answer:-
+
+#include<iostream>
+#include<unistd.h>
+#include<sched.h>
+using namespace std;
+int main()
+{
+        int a;
+        a=sched_setscheduler(getpid(),SCHED_FIFO,0);
+
+        if(a==0)
+        {
+                cout<<"priority set";
+        }
+        else
+        {
+                cout<<"priority not set";
+        }
+return 0;
+}
+Output
+priority not set
